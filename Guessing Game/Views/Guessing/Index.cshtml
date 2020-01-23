@@ -1,0 +1,31 @@
+﻿@model Guessing_Game.ViewModels.GuessingViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Check your temperature</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div>I just created a random number between 1 and 100. Try to guess it!</div>
+            <div>You are only allowed @Model.MaxAllowed attempts!</div>
+
+            <div asp-validation-summGary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Guessed" class="control-label"></label>
+                <input asp-for="Guessed" class="form-control" />
+                <span asp-validation-for="Guessed" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Check it!" class="btn btn-primary" />
+            </div>
+
+            <div>Attempts made: @Model.Attempts</div>
+            <div>@Model.Message</div>
+        </form>
+    </div>
+</div>
+
+
